@@ -7,9 +7,9 @@ int main()
             for(k=50;k<=100;k++){
                 int a=i*i+j*j;
                 int b=k*k;
-                if(a==b){
+                if(a==b && i){
                     printf("%d,%d,%d\n",i,j,k);
-                    count=+1;
+                    count=count+1;
                 }
             }
         }
