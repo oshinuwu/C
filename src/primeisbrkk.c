@@ -32,6 +32,7 @@ int main() {
     }
 
     printf("Sum: %d\n", sum);
+     printf("Name:Oshin Pant\n Roll no:19\n Lab no:4");
     getch();
     return 0;
 }

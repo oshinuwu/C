@@ -10,7 +10,8 @@ int main()
         r=r*s;
         num=num/10;
     } while (num!=0);
-    printf("the product is %d",r);
+    printf("the product is %d\n",r);
+    printf("Name:Oshin Pant\n Roll no:19 Lab no:2-b");
     getch();
     return 0;
 }

@@ -11,7 +11,8 @@ int main()
      rev=rev+r*i;
     i=i*10;
     }
-    printf("%ld",rev);
+    printf("%ld\n",rev);
+     printf("Name:Oshin Pant\n Roll no:19\n Lab no:1-d");
     getch();
     return 0;
 

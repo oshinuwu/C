@@ -27,7 +27,9 @@ int main() {
        
         num++;
     } while (num <= 5000);
+    printf("\n");
      printf("no of terms is %d\n", count);
+    printf("Name:Oshin Pant\n Roll no:19\n Lab no:6-e");
     getch();
     return 0;
 }

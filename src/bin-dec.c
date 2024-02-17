@@ -11,7 +11,8 @@ int main()
         num=num/10;
         i++;
     }while(num!=0);
-    printf("%d",p);
+    printf("%d\n",p);
+     printf("Name:Oshin Pant\n Roll no:19\n Lab no:2-d");
     getch();
     return 0;
 }

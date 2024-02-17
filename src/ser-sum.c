@@ -14,6 +14,8 @@ int main()
         fact=1;
     } printf("\n");
     printf("the sum is %f",sum);
+     printf("\n");
+     printf("Name:Oshin Pant\n Roll no:19\n Lab no:6-b");
     getch();
     return 0;
 }

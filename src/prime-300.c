@@ -18,7 +18,8 @@ int main()
         if(prime=='y') {
             printf("%d\t",j);
         }
-    } 
+    } printf("\n");
+     printf("Name:Oshin Pant\n Roll no:19\n Lab no:6-a");
     getch();  
     return 0;
 }

@@ -10,13 +10,14 @@ int main()
         r=r*10+s;
         n=n/10;
     }while(n!=0);
-    printf("%d",r);
+    
     if(y==r){
-        printf("it is a palindrome");
+        printf("it is a palindrome\n");
     }
     else{
-        printf("it is not a palindrome");
+        printf("it is not a palindrome\n");
     }
+    printf("Name:Oshin Pant\n Roll no:19\n Lab no:2-c");
     getch();
     return 0;
 }

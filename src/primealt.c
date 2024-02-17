@@ -38,14 +38,14 @@ int main() {
         }
         break;
     }
-    printf("%d",num);
+    
     if(prime=='y') {
         printf("\033[0;32mPrime\033[0m");
     }
     else {
         printf("\033[0;31mNOT Prime\033[0m");
     }
-
+    printf("\n");
     while(num!=0)
     {
         num=num/10;
@@ -64,7 +64,8 @@ int main() {
     }
     else{
         printf("it is not an armstrong number");
-    }
+    }printf("\n");
+     printf("Name:Oshin Pant\n Roll no:19\n Lab no:1-c");
     getch();
     return 0;
 }

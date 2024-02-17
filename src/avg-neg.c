@@ -8,9 +8,11 @@ int main()
         i=i+num;
         j++;
     }while(num>=0);
-    printf("the sum is %d",i);
+    printf("the sum is %d\n",i);
     int a=i/j;
-    printf("the average is %d",a);
-    getch();
+    printf("the average is %d\n",a);
+   
+     printf("Name:Oshin Pant\n Roll no:19\n Lab no:2-e");
+      getch();
     return 0;
 }
