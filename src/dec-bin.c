@@ -1,7 +1,8 @@
 #include<stdio.h>
 int main()
 {
-    long int num,i=1,q,r,rev=0;
+    long int num;
+    int i=1,q,r,rev=0;
     printf("enter a number");
     scanf("%ld",&num);
     while(q!=0){
