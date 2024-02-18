@@ -10,8 +10,9 @@ int main()
   
         // innter loop to print number in each row 
         for (int j = 0; j <= i; j++) { 
+            if(n<=14){
             printf("%d ", n++); 
-        } 
+        } }
         printf("\n"); 
     } 
      printf("\n");
