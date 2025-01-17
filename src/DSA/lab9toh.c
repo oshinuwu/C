@@ -1,0 +1,20 @@
+#include<stdio.h>
+void transfer(int n, char from, char to, char aux){
+   if(n==1){
+      printf("\nMove disk %d from peg %c to peg %c",n,from,to);
+   }
+   else{
+      transfer(n-1,from,aux,to);
+      printf("\nMove disk %d from peg %c to peg %c",n,from,to);
+      transfer(n-1, aux, to, from);
+   }
+}
+int main(){
+   int n;
+   printf("Enter no. of disks : ");
+   scanf("%d",&n);
+   transfer(n, 'A','C','B');
+   
+   getch();
+   return 0;
+}
