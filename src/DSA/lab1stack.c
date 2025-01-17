@@ -69,6 +69,7 @@ int main()
             display();
             break;
         case 4:
+            getch();
             exit(0);
             break;
         }
