@@ -1,25 +1,24 @@
-#include<stdio.h>
-int fibonacci(int n){
-   int result;
-   if(n==0){
-      result=0;
-   }
-   else if(n==1){
-      result = 1;
-   }
-   else{
-      result = fibonacci(n-1)+ fibonacci(n-2);
-   }
+#include <stdio.h>
+#include<conio.h>
+
+void fibonacci(int n, int a, int b) {
+    if (n <= 0)
+        return;
+    
+    printf("%d ", a);
+    fibonacci(n - 1, b, a + b);
 }
 
-int main(){
-   int i,n;
-   printf("Enter a number : ");
-   scanf("%d",&n);
-   for(i=0;i<=n;i++){
-      printf("%d ",fibonacci(i));
-   }
-   
-   getch();
-   return 0;
+int main() {
+    int n;
+    
+    // Taking input from the user
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
+    
+    printf("Fibonacci Series: ");
+    fibonacci(n, 0, 1);
+    
+    getch();
+    return 0;
 }
