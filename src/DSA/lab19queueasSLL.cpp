@@ -2,37 +2,43 @@
 #include <stdlib.h>
 
 // Node structure for singly linked list
-struct Node {
+struct Node
+{
     int data;
-    struct Node* next;
+    struct Node *next;
 };
 
 // Queue structure with front and rear pointers
-struct Queue {
-    struct Node* front;
-    struct Node* rear;
+struct Queue
+{
+    struct Node *front;
+    struct Node *rear;
 };
 
 // Function to create a new node
-struct Node* createNode(int value) {
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+struct Node *createNode(int value)
+{
+    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
     newNode->data = value;
     newNode->next = NULL;
     return newNode;
 }
 
 // Function to create and initialize an empty queue
-struct Queue* createQueue() {
-    struct Queue* q = (struct Queue*)malloc(sizeof(struct Queue));
+struct Queue *createQueue()
+{
+    struct Queue *q = (struct Queue *)malloc(sizeof(struct Queue));
     q->front = NULL;
     q->rear = NULL;
     return q;
 }
 
 // Enqueue operation (insert at the rear)
-void enqueue(struct Queue* q, int value) {
-    struct Node* newNode = createNode(value);
-    if (q->rear == NULL) { // Queue is empty
+void enqueue(struct Queue *q, int value)
+{
+    struct Node *newNode = createNode(value);
+    if (q->rear == NULL)
+    { // Queue is empty
         q->front = q->rear = newNode;
         return;
     }
@@ -42,17 +48,20 @@ void enqueue(struct Queue* q, int value) {
 }
 
 // Dequeue operation (remove from the front)
-int dequeue(struct Queue* q) {
-    if (q->front == NULL) { // Queue is empty
+int dequeue(struct Queue *q)
+{
+    if (q->front == NULL)
+    { // Queue is empty
         printf("Queue is empty! Cannot dequeue.\n");
         return -1;
     }
-    struct Node* temp = q->front;
+    struct Node *temp = q->front;
     int dequeuedValue = temp->data;
     q->front = q->front->next;
-    
+
     // If front becomes NULL, set rear to NULL too (queue is empty)
-    if (q->front == NULL) {
+    if (q->front == NULL)
+    {
         q->rear = NULL;
     }
     free(temp);
@@ -60,22 +69,26 @@ int dequeue(struct Queue* q) {
 }
 
 // Function to display the queue elements
-void displayQueue(struct Queue* q) {
-    struct Node* temp = q->front;
-    if (temp == NULL) {
+void displayQueue(struct Queue *q)
+{
+    struct Node *temp = q->front;
+    if (temp == NULL)
+    {
         printf("Queue is empty!\n");
         return;
     }
     printf("Queue: ");
-    while (temp != NULL) {
+    while (temp != NULL)
+    {
         printf("%d -> ", temp->data);
         temp = temp->next;
     }
     printf("NULL\n");
 }
 
-int main() {
-    struct Queue* q = createQueue();
+int main()
+{
+    struct Queue *q = createQueue();
 
     // Perform some operations
     enqueue(q, 10);
@@ -94,6 +107,9 @@ int main() {
     printf("Dequeued: %d\n", dequeue(q));
     dequeue(q); // Trying to dequeue from an empty queue
 
+    printf("\nName:Oshin Pant Roll No:23 Lab No:19");
+    fflush(stdin);
+	getchar();
+    getchar();
     return 0;
 }
-

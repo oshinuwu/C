@@ -15,6 +15,9 @@ int main(){
    scanf("%d",&n);
    transfer(n, 'A','C','B');
    
-   getch();
+   printf("\nName:Oshin Pant Roll No:23 Lab No:9");
+   fflush(stdin);
+  getchar();
+   getchar();
    return 0;
 }

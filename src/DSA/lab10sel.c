@@ -37,6 +37,9 @@ int main()
         printf("%d\t", a[i]);
     }
 
-    getch();
+    printf("\nName:Oshin Pant Roll No:23 Lab No:10");
+    fflush(stdin);
+	getchar();
+    getchar();
     return 0;
 }

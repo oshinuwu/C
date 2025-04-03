@@ -35,6 +35,9 @@ int main()
     loc = b_search(a, l, h, key);
     printf("\nKey %d is at location %d", key, loc);
 
-    getch();
+    printf("\nName:Oshin Pant Roll No:23 Lab No:7");
+    fflush(stdin);
+	getchar();
+    getchar();
     return 0;
 }

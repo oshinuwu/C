@@ -52,6 +52,9 @@ int main()
     }
     printf("\n");
    
-    getch();
+    printf("\nName:Oshin Pant Roll No:23 Lab No:11");
+    fflush(stdin);
+	getchar();
+    getchar();
     return 0;
 }

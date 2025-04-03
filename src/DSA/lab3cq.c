@@ -98,5 +98,9 @@ int main()
         }
     }
     
+    printf("\nName:Oshin Pant Roll No:23 Lab No:3");
+    fflush(stdin);
+	getchar();
+    getchar();
     return 0;
 }

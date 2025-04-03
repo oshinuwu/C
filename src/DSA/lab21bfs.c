@@ -1,88 +1,83 @@
+#include <stdio.h>
+#include <stdbool.h>
 
-#include<stdio.h>
-#include<stdlib.h>
- 
-struct queue
-{
-    int size;
-    int f;
-    int r;
-    int* arr;
+#define V 6  // Number of vertices
+
+// Queue for BFS
+int queue[V], front = -1, rear = -1;
+
+void enqueue(int v) {
+    if (rear == V-1) return;
+    if (front == -1) front = 0;
+    queue[++rear] = v;
+}
+
+int dequeue() {
+    if (front == -1) return -1;
+    int v = queue[front++];
+    if (front > rear) front = rear = -1;
+    return v;
+}
+
+bool isEmpty() {
+    return front == -1;
+}
+
+// Graph representation (adjacency matrix)
+int graph[V][V] = {
+    {0,1,1,0,0,0},
+    {1,0,0,1,1,0},
+    {1,0,0,0,1,0},
+    {0,1,0,0,1,1},
+    {0,1,1,1,0,1},
+    {0,0,0,1,1,0}
 };
- 
- 
-int isEmpty(struct queue *q){
-    if(q->r==q->f){
-        return 1;
-    }
-    return 0;
-}
- 
-int isFull(struct queue *q){
-    if(q->r==q->size-1){
-        return 1;
-    }
-    return 0;
-}
- 
-void enqueue(struct queue *q, int val){
-    if(isFull(q)){
-        printf("This Queue is full\n");
-    }
-    else{
-        q->r++;
-        q->arr[q->r] = val;
-        // printf("Enqued element: %d\n", val);
-    }
-}
- 
-int dequeue(struct queue *q){
-    int a = -1;
-    if(isEmpty(q)){
-        printf("This Queue is empty\n");
-    }
-    else{
-        q->f++;
-        a = q->arr[q->f]; 
-    }
-    return a;
-}
 
-int main() {
-    struct queue q;
-    q.size = 400;
-    q.f = q.r = 0;
-    q.arr = (int*) malloc(q.size*sizeof(int));
-    
-    // BFS Implementation 
-    int node;
-    int i = 0;
-    int visited[7] = {0,0,0,0,0,0,0};
-    int a [7][7] = {
-        {0,1,1,0,0,0,0},
-        {1,0,0,1,0,0,0},
-        {1,0,0,1,1,0,0},
-        {0,1,1,0,0,0,0},
-        {0,0,1,0,0,1,1},
-        {0,0,0,0,1,0,1}, 
-        {0,0,0,0,1,1,0} 
-    };
-    printf("%d ", i);
-    enqueue(&q, i);
-    while (!isEmpty(&q))
-    {
-        int node = dequeue(&q); //remove
-        visited[i] = 1; //mark visited
-        int j;
-        for ( j = 0; j < 7; j++)
-        {
-            if(a[node][j] ==1 && visited[j] == 0){
-                printf("%d ", j); //add to the bfs
-                visited[j] = 1;
-                enqueue(&q, j); //add neighbors
+// BFS implementation
+void BFS(int start) {
+    bool visited[V] = {false};
+    printf("BFS: ");
+    enqueue(start);
+    visited[start] = true;
+
+    while (!isEmpty()) {
+        int v = dequeue();
+        printf("%d ", v);
+
+        for (int i = 0; i < V; i++) {
+            if (graph[v][i] && !visited[i]) {
+                enqueue(i);
+                visited[i] = true;
             }
         }
     }
-    return 0;
+    printf("\n");
 }
 
+// DFS implementation
+void DFS(int v, bool visited[]) {
+    visited[v] = true;
+    printf("%d ", v);
+
+    for (int i = 0; i < V; i++) {
+        if (graph[v][i] && !visited[i]) {
+            DFS(i, visited);
+        }
+    }
+}
+
+int main() {
+    printf("Traversals for the graph:\n");
+    BFS(0);  // BFS starting from vertex 0
+
+    bool visited[V] = {false};
+    printf("DFS: ");
+    DFS(0, visited);  // DFS starting from vertex 0
+    printf("\n");
+
+    printf("\nName:Oshin Pant Roll No:23 Lab No:21");
+    fflush(stdin);
+	getchar();
+    getchar();
+    return 0;
+}

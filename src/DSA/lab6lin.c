@@ -14,6 +14,9 @@ int main()
         }
         printf("\nElement not found in index %d", i);
     }
-    getch();
+    printf("\nName:Oshin Pant Roll No:23 Lab No:6");
+    fflush(stdin);
+	getchar();
+    getchar();
     return 0;
 }

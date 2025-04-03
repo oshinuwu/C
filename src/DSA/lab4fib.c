@@ -19,6 +19,9 @@ int main() {
     printf("Fibonacci Series: ");
     fibonacci(n, 0, 1);
     
-    getch();
+    printf("\nName:Oshin Pant Roll No:23 Lab No:4");
+    fflush(stdin);
+	getchar();
+    getchar();
     return 0;
 }

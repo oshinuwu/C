@@ -74,4 +74,10 @@ int main()
             break;
         }
     }
+
+    printf("\nName:Oshin Pant Roll No:23 Lab No:1");
+    fflush(stdin);
+	getchar();
+    getchar();
+    return 0;
 }

@@ -1,214 +1,135 @@
-// C Program to Implement Doubly Linked List
 #include <stdio.h>
 #include <stdlib.h>
 
-// defining a node
 typedef struct Node {
     int data;
-    struct Node* next;
-    struct Node* prev;
+    struct Node *next, *prev;
 } Node;
 
-// Function to create a new node with given value as data
-Node* createNode(int data)
-{
-    Node* newNode = (Node*)malloc(sizeof(Node));
-    newNode->data = data;
-    newNode->next = NULL;
-    newNode->prev = NULL;
-    return newNode;
+Node* create_node(int data) {
+    Node* new = (Node*)malloc(sizeof(Node));
+    new->data = data;
+    new->next = new->prev = NULL;
+    return new;
 }
 
-// Function to insert a node at the beginning
-void insertAtBeginning(Node** head, int data)
-{
-    // creating new node
-    Node* newNode = createNode(data);
-
-    // check if DLL is empty
-    if (*head == NULL) {
-        *head = newNode;
-        return;
+void insert_front(Node** head, int data) {
+    Node* new = create_node(data);
+    if (*head) {
+        new->next = *head;
+        (*head)->prev = new;
     }
-    newNode->next = *head;
-    (*head)->prev = newNode;
-    *head = newNode;
+    *head = new;
 }
 
-// Function to insert a node at the end
-void insertAtEnd(Node** head, int data)
-{
-    // creating new node
-    Node* newNode = createNode(data);
-
-    // check if DLL is empty
-    if (*head == NULL) {
-        *head = newNode;
+void insert_end(Node** head, int data) {
+    Node* new = create_node(data);
+    if (!*head) {
+        *head = new;
         return;
     }
-
-    Node* temp = *head;
-    while (temp->next != NULL) {
-        temp = temp->next;
-    }
-    temp->next = newNode;
-    newNode->prev = temp;
+    
+    Node* curr = *head;
+    while (curr->next) curr = curr->next;
+    curr->next = new;
+    new->prev = curr;
 }
 
-// Function to insert a node at a specified position
-void insertAtPosition(Node** head, int data, int position)
-{
-    if (position < 1) {
-        printf("Position should be >= 1.\n");
-        return;
-    }
-
-    // if we are inserting at head
-    if (position == 1) {
-        insertAtBeginning(head, data);
-        return;
-    }
-    Node* newNode = createNode(data);
-    Node* temp = *head;
-    int i;
-    for ( i = 1; temp != NULL && i < position - 1; i++) {
-        temp = temp->next;
-    }
-    if (temp == NULL) {
-        printf(
-            "Position greater than the number of nodes.\n");
-        return;
-    }
-    newNode->next = temp->next;
-    newNode->prev = temp;
-    if (temp->next != NULL) {
-        temp->next->prev = newNode;
-    }
-    temp->next = newNode;
-}
-
-// Function to delete a node from the beginning
-void deleteAtBeginning(Node** head)
-{
-    // checking if the DLL is empty
-    if (*head == NULL) {
-        printf("The list is already empty.\n");
-        return;
-    }
+void delete_front(Node** head) {
+    if (!*head) return;
+    
     Node* temp = *head;
     *head = (*head)->next;
-    if (*head != NULL) {
-        (*head)->prev = NULL;
-    }
+    if (*head) (*head)->prev = NULL;
     free(temp);
 }
 
-// Function to delete a node from the end
-void deleteAtEnd(Node** head)
-{
-    // checking if DLL is empty
-    if (*head == NULL) {
-        printf("The list is already empty.\n");
-        return;
-    }
-
-    Node* temp = *head;
-    if (temp->next == NULL) {
+void delete_end(Node** head) {
+    if (!*head) return;
+    
+    if (!(*head)->next) {
+        free(*head);
         *head = NULL;
-        free(temp);
         return;
     }
-    while (temp->next != NULL) {
-        temp = temp->next;
-    }
-    temp->prev->next = NULL;
-    free(temp);
+    
+    Node* curr = *head;
+    while (curr->next) curr = curr->next;
+    curr->prev->next = NULL;
+    free(curr);
 }
 
-// Function to delete a node from a specified position
-void deleteAtPosition(Node** head, int position)
-{
-    if (*head == NULL) {
-        printf("The list is already empty.\n");
-        return;
+void delete_node(Node** head, int data) {
+    if (!*head) return;
+    
+    Node* curr = *head;
+    while (curr && curr->data != data) curr = curr->next;
+    
+    if (!curr) return; // Not found
+    
+    if (curr == *head) {
+        delete_front(head);
+    } else if (!curr->next) {
+        delete_end(head);
+    } else {
+        curr->prev->next = curr->next;
+        curr->next->prev = curr->prev;
+        free(curr);
     }
-    Node* temp = *head;
-    if (position == 1) {
-        deleteAtBeginning(head);
-        return;
-    }
-    int i;
-    for ( i = 1; temp != NULL && i < position; i++) {
-        temp = temp->next;
-    }
-    if (temp == NULL) {
-        printf("Position is greater than the number of "
-               "nodes.\n");
-        return;
-    }
-    if (temp->next != NULL) {
-        temp->next->prev = temp->prev;
-    }
-    if (temp->prev != NULL) {
-        temp->prev->next = temp->next;
-    }
-    free(temp);
 }
 
-// Function to print the list in forward direction
-void printListForward(Node* head)
-{
-    Node* temp = head;
-    printf("Forward List: ");
-    while (temp != NULL) {
-        printf("%d ", temp->data);
-        temp = temp->next;
+void print_list(Node* head, int reverse) {
+    if (!head) {
+        printf("List is empty\n");
+        return;
+    }
+    
+    if (reverse) {
+        while (head->next) head = head->next;
+        while (head) {
+            printf("%d ", head->data);
+            head = head->prev;
+        }
+    } else {
+        while (head) {
+            printf("%d ", head->data);
+            head = head->next;
+        }
     }
     printf("\n");
 }
 
-// Function to print the list in reverse direction
-void printListReverse(Node* head)
-{
-    Node* temp = head;
-    if (temp == NULL) {
-        printf("The list is empty.\n");
-        return;
-    }
-    // Move to the end of the list
-    while (temp->next != NULL) {
-        temp = temp->next;
-    }
-    // Traverse backwards
-    printf("Reverse List: ");
-    while (temp != NULL) {
-        printf("%d ", temp->data);
-        temp = temp->prev;
-    }
-    printf("\n");
+void free_list(Node** head) {
+    while (*head) delete_front(head);
 }
 
-int main()
-{
+int main() {
     Node* head = NULL;
+    
+    insert_end(&head, 10);
+    insert_end(&head, 20);
+    insert_front(&head, 5);
+    
+    printf("forward list: ");
+    print_list(head, 0); // Forward: 5 10 20
+    printf("Reverse list: ");
+    print_list(head, 1); // Reverse: 20 10 5
+    
+    delete_front(&head); // Removes 5
+    delete_end(&head);   // Removes 20
+    printf("After deletion: ");
+    print_list(head, 0); 
 
-    // Demonstrating various operations
-    insertAtEnd(&head, 10);
-    insertAtEnd(&head, 20);
-    insertAtBeginning(&head, 5);
-    insertAtPosition(&head, 15, 2); // List: 5 15 10 20
+    delete_node(&head, 10); // Removes 10
+    
+    printf("After deletion of node: ");
+    print_list(head, 0); // List is empty
+    
+    free_list(&head);
 
-    printf("After Insertions:\n");
-    printListForward(head);
-    printListReverse(head);
-
-    deleteAtBeginning(&head); // List: 15 10 20
-    deleteAtEnd(&head); // List: 15 10
-    deleteAtPosition(&head, 2); // List: 15
-
-    printf("After Deletions:\n");
-    printListForward(head);
-
+    printf("\nName:Oshin Pant Roll No:23 Lab No:20");
+    fflush(stdin);
+	getchar();
+    getchar();
     return 0;
 }
-

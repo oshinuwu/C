@@ -19,6 +19,9 @@ int main()
     scanf("%d", &x);
     printf("\nThe factorial is %d", fact(x));
 
-    getch();
+    printf("\nName:Oshin Pant Roll No:23 Lab No:12");
+    fflush(stdin);
+	getchar();
+    getchar();
     return 0;
 }

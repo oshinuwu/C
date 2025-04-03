@@ -1,99 +1,90 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define SIZE 10  // Define the size of the hash table
+#define SIZE 10
 
-// Structure to store a key-value pair
-typedef struct {
+typedef struct
+{
     int key;
     int value;
 } HashEntry;
 
-// Hash table initialization
-HashEntry* hashTable[SIZE];
+HashEntry *hashTable[SIZE] = {NULL}; // Initialize all to NULL
 
-// Function to create a new hash entry
-HashEntry* createEntry(int key, int value) {
-    HashEntry* newEntry = (HashEntry*)malloc(sizeof(HashEntry));
-    newEntry->key = key;
-    newEntry->value = value;
-    return newEntry;
-}
-
-// Hash function to map keys to indices
-int hashFunction(int key) {
+int hash(int key)
+{
     return key % SIZE;
 }
 
-// Function to insert key-value pair into hash table using linear probing
-void insert(int key, int value) {
-    int index = hashFunction(key);
+void insert(int key, int value)
+{
+    int index = hash(key);
 
-    while (hashTable[index] != NULL && hashTable[index]->key != key) {
-        index = (index + 1) % SIZE;  // Linear probing
+    while (hashTable[index] != NULL)
+    {
+        if (hashTable[index]->key == key)
+        {
+            hashTable[index]->value = value; // Update if key exists
+            return;
+        }
+        index = (index + 1) % SIZE; // Linear probing
     }
 
-    if (hashTable[index] != NULL) {
-        printf("Updating key %d at index %d\n", key, index);
-    } else {
-        printf("Inserting key %d at index %d\n", key, index);
-    }
-    hashTable[index] = createEntry(key, value);
+    // Create new entry if key doesn't exist
+    HashEntry *newEntry = malloc(sizeof(HashEntry));
+    newEntry->key = key;
+    newEntry->value = value;
+    hashTable[index] = newEntry;
 }
 
-// Function to search for a value by key
-int search(int key) {
-    int index = hashFunction(key);
+int search(int key)
+{
+    int index = hash(key);
+    int start = index;
 
-    for (int i = 0; i < SIZE; i++) {
-        if (hashTable[index] == NULL) {
-            return -1;  // Key not found
-        }
-        if (hashTable[index]->key == key) {
+    do
+    {
+        if (hashTable[index] != NULL && hashTable[index]->key == key)
+        {
             return hashTable[index]->value;
         }
-        index = (index + 1) % SIZE;  // Linear probing
-    }
-    return -1;  // Key not found
+        index = (index + 1) % SIZE;
+    } while (index != start); // Stop if we loop back
+
+    return -1; // Not found
 }
 
-// Function to display the hash table
-void display() {
-    for (int i = 0; i < SIZE; i++) {
-        if (hashTable[i] != NULL) {
-            printf("Index %d: Key = %d, Value = %d\n", i, hashTable[i]->key, hashTable[i]->value);
-        } else {
+void display()
+{
+    for (int i = 0; i < SIZE; i++)
+    {
+        if (hashTable[i])
+        {
+            printf("Index %d: Key=%d, Value=%d\n", i, hashTable[i]->key, hashTable[i]->value);
+        }
+        else
+        {
             printf("Index %d: NULL\n", i);
         }
     }
 }
 
-int main() {
-    // Initializing the hash table
-    for (int i = 0; i < SIZE; i++) {
-        hashTable[i] = NULL;
-    }
-
-    // Inserting key-value pairs
+int main()
+{
     insert(10, 100);
     insert(20, 200);
     insert(15, 150);
-    insert(25, 250);  // Causes a collision with key 15
+    insert(25, 250); // Collides with 15 (both hash to 5)
     insert(30, 300);
 
-    // Displaying the hash table
-    printf("\nHash table after insertions:\n");
+    printf("Hash table:\n");
     display();
 
-    // Searching for a key
-    int keyToSearch = 15;
-    int value = search(keyToSearch);
-    if (value != -1) {
-        printf("\nFound value %d for key %d\n", value, keyToSearch);
-    } else {
-        printf("\nKey %d not found in hash table.\n", keyToSearch);
-    }
+    int key = 25;
+    int value = search(key);
+    printf("\nSearch %d: %s\n", key, value != -1 ? "Found" : "Not found");
 
+    printf("\nName:Oshin Pant Roll No:23 Lab No:13");
+    getchar();
     return 0;
 }
-

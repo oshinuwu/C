@@ -1,125 +1,104 @@
+// krushkal:
+
 #include <stdio.h>
-#include <stdlib.h>
 
-#define MAX 100  // Maximum number of edges and vertices
+int i, j, k, a, b, u, v, n, ne = 1;
 
-// Structure to represent an edge
-struct Edge {
-    int src, dest, weight;
-};
+int min, mincost = 0, cost[9][9], parent[9];
 
-// Structure to represent a graph
-struct Graph {
-    int V, E;              // Number of vertices and edges
-    struct Edge* edge;     // Array of edges
-};
+int find(int i)
+{
 
-// Structure to represent a subset for Union-Find
-struct Subset {
-    int parent;
-    int rank;
-};
+    while (parent[i])
 
-// Function to create a graph with V vertices and E edges
-struct Graph* createGraph(int V, int E) {
-    struct Graph* graph = (struct Graph*)malloc(sizeof(struct Graph));
-    graph->V = V;
-    graph->E = E;
-    graph->edge = (struct Edge*)malloc(E * sizeof(struct Edge));
-    return graph;
+        i = parent[i];
+
+    return i;
 }
 
-// Find function using path compression (Union-Find)
-int find(struct Subset subsets[], int i) {
-    if (subsets[i].parent != i) {
-        subsets[i].parent = find(subsets, subsets[i].parent);
-    }
-    return subsets[i].parent;
-}
+int uni(int i, int j)
+{
 
-// Union function by rank
-void unionByRank(struct Subset subsets[], int x, int y) {
-    int rootX = find(subsets, x);
-    int rootY = find(subsets, y);
+    if (i != j)
+    {
 
-    if (subsets[rootX].rank < subsets[rootY].rank) {
-        subsets[rootX].parent = rootY;
-    } else if (subsets[rootX].rank > subsets[rootY].rank) {
-        subsets[rootY].parent = rootX;
-    } else {
-        subsets[rootY].parent = rootX;
-        subsets[rootX].rank++;
-    }
-}
+        parent[j] = i;
 
-// Compare function for qsort to sort edges by weight
-int compareEdges(const void* a, const void* b) {
-    struct Edge* edge1 = (struct Edge*)a;
-    struct Edge* edge2 = (struct Edge*)b;
-    return edge1->weight - edge2->weight;
-}
-
-// Function to implement Kruskal's Algorithm
-void kruskalMST(struct Graph* graph) {
-    int V = graph->V;
-    struct Edge result[MAX];  // Array to store the MST
-    int e = 0;                // Index for result[]
-    int i = 0;                // Index for sorted edges
-
-    // Sort all edges in increasing order of weight
-    qsort(graph->edge, graph->E, sizeof(graph->edge[0]), compareEdges);
-
-    // Allocate memory for creating subsets
-    struct Subset* subsets = (struct Subset*)malloc(V * sizeof(struct Subset));
-
-    // Initialize subsets with single elements
-    for (int v = 0; v < V; v++) {
-        subsets[v].parent = v;
-        subsets[v].rank = 0;
+        return 1;
     }
 
-    // Process edges one by one
-    while (e < V - 1 && i < graph->E) {
-        // Pick the smallest edge
-        struct Edge nextEdge = graph->edge[i++];
-        int x = find(subsets, nextEdge.src);
-        int y = find(subsets, nextEdge.dest);
-
-        // If including this edge doesn't cause a cycle, include it in the MST
-        if (x != y) {
-            result[e++] = nextEdge;
-            unionByRank(subsets, x, y);
-        }
-    }
-
-    // Print the resulting MST
-    printf("Edges in the Minimum Spanning Tree:\n");
-    int minCost = 0;
-    for (i = 0; i < e; i++) {
-        printf("%d -- %d == %d\n", result[i].src, result[i].dest, result[i].weight);
-        minCost += result[i].weight;
-    }
-    printf("Minimum Cost of the Spanning Tree: %d\n", minCost);
-
-    free(subsets);
-}
-
-int main() {
-    int V = 4;  // Number of vertices
-    int E = 5;  // Number of edges
-    struct Graph* graph = createGraph(V, E);
-
-    // Adding edges: src, dest, weight
-    graph->edge[0].src = 0; graph->edge[0].dest = 1; graph->edge[0].weight = 10;
-    graph->edge[1].src = 0; graph->edge[1].dest = 2; graph->edge[1].weight = 6;
-    graph->edge[2].src = 0; graph->edge[2].dest = 3; graph->edge[2].weight = 5;
-    graph->edge[3].src = 1; graph->edge[3].dest = 3; graph->edge[3].weight = 15;
-    graph->edge[4].src = 2; graph->edge[4].dest = 3; graph->edge[4].weight = 4;
-
-    kruskalMST(graph);
-
-    free(graph->edge);
-    free(graph);
     return 0;
 }
 
+int main()
+{
+
+    printf("\nImplementation of Kruskal's algorithm\n");
+
+    printf("\nEnter the number of vertices: ");
+
+    scanf("%d", &n);
+
+    printf("\nEnter the weights of edges : \n");
+
+    for (i = 1; i <= n; i++)
+    {
+
+        for (j = 1; j <= n; j++)
+        {
+            printf("\nSource : %d\tDestination : %d\t\tWeight of Edge : ", i, j);
+
+            scanf("%d", &cost[i][j]);
+
+            if (cost[i][j] == 0)
+
+                cost[i][j] = 999;
+        }
+    }
+
+    printf("\n\nThe edges of the minimum spanning tree are\n");
+
+    while (ne < n)
+    {
+
+        for (i = 1, min = 999; i <= n; i++)
+        {
+
+            for (j = 1; j <= n; j++)
+            {
+
+                if (cost[i][j] < min)
+                {
+
+                    min = cost[i][j];
+
+                    a = u = i;
+
+                    b = v = j;
+                }
+            }
+        }
+
+        u = find(u);
+
+        v = find(v);
+
+        if (uni(u, v))
+        {
+
+            printf("%d edge(%d,%d) = %d\n", ne++, a, b, min);
+
+            mincost += min;
+        }
+
+        cost[a][b] = cost[b][a] = 999;
+    }
+
+    printf("\nMinimal cost = %d\n", mincost);
+
+    printf("\n\nName : Oshin Pant  Roll no. : 23  Lab No: 23");
+    fflush(stdin);
+    getchar();
+    getchar();
+    return 0;
+}
