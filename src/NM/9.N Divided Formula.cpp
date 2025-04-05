@@ -1,4 +1,4 @@
-//Write a C program to interpolate using Newton’s Divided difference method
+//Write a C program to interpolate using Newtonï¿½s Divided difference method
 /*Algorithm
 Start
 Read number of points say n
@@ -26,7 +26,7 @@ End for
 Print the interpolated value v
 Stop
 
-C Program for Newton’s Interpolation*/
+C Program for Newtonï¿½s Interpolation*/
 #include<stdio.h>
 #include<conio.h>
 int main()
@@ -41,6 +41,7 @@ int main()
 	{
 		printf("Enter the value of x and fx at i = %d\n",i);
 		scanf("%f%f",&x[i],&fx[i]);
+		fflush(stdin);
 	}
 	for(i=0;i<n;i++)
 	a[i] = fx[i];
@@ -60,7 +61,8 @@ int main()
 		v = v+a[i]*p;
 	}
 	printf("Interpolation value = %f",v);
-	printf("\nName:Jenisha Pandit\nRollno:61\nLab no 9");
+	printf("\nName:Oshin Pant\nRollno:23\nLab no: 9");
+	getchar();
 	getch();
 	return 0;
 }

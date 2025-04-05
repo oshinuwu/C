@@ -1,5 +1,5 @@
-/*Write a C program to find integration using Simpson’s 3/8 I rule
-Algorithm for Simpson’s 3/8 Rule
+/*Write a C program to find integration using Simpsonï¿½s 3/8 I rule
+Algorithm for Simpsonï¿½s 3/8 Rule
 Start
 Read value of upper limit say x3
 Read value of lower limit say x0
@@ -9,10 +9,10 @@ Set x1 = x0+h
 Set x2 = x0+2h
 Compute f0 = f(x0), f1 = (x1), f2(x2), f3 = (x3)
 Calculate the value of integration by using formula I = 3/8*[f0+3*f1+3*f2+f3]
-Display value of “I”
+Display value of ï¿½Iï¿½
 Stop
-………………………………………………….
-C program for composite Simpson’s 3/8 rule
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+C program for composite Simpsonï¿½s 3/8 rule
 Write a C program to find integration using simpson 3/8 rule*/
 #include<stdio.h>
 #include<conio.h>
@@ -35,7 +35,10 @@ int main()
 	f3 = f(x3);
 	I  = 3*h*(f0+3*f1+3*f2+f3)/8;
  	printf("Integration =%f",I);
-	printf("\nName:Jenisha Pandit\nRollno:61\nLab no 18");
+	 printf("\nName:Oshin Pant\n Rollno:23\n Lab no: 18");
+	 fflush(stdin);
+	getchar();
+	 getchar();
 	return 0;
 }
 /*Output:

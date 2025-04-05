@@ -6,14 +6,14 @@ Read coefficient matrix row-wise
 Read RHS vector
 Perform forward elimination as below
 For k=1 to n-1
-	Find largest of a[p][k] for p=k, k+1, ….n
+	Find largest of a[p][k] for p=k, k+1, ï¿½.n
 	Swap row k and row p in coefficient matrix
 	Swap row k and p in RHS vector
 	Pivot  = a[k][k]
 For i=k+1 to n
 Term  = (a[i][k]/pivot)
-Multiply row k of B matrix by “term” and subtract it from row i
-Multiply row k of B matrix by “term” and subtract it from row i
+Multiply row k of B matrix by ï¿½termï¿½ and subtract it from row i
+Multiply row k of B matrix by ï¿½termï¿½ and subtract it from row i
 End for
 End for
 Perform back substitution as below
@@ -29,7 +29,7 @@ Display the solution vector
 Stop*/
 
 
-//C program for Naïve Gauss Elimination Method
+//C program for Naï¿½ve Gauss Elimination Method
 
 #include<stdio.h>
 #include<conio.h>
@@ -84,7 +84,10 @@ int main()
 	{
 		printf("x%d = %f\t",i+1,x[i]);
 	}
-	printf("\nName:Jenisha Pandit\nRollno:61\nLab no 26");
+	printf("\nName:Oshin Pant\nRollno:23\nLab no: 26");
+		fflush(stdin);
+		getchar();
+		getchar();
 	return 0;
 }
 /*Output:

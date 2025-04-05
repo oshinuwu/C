@@ -24,12 +24,12 @@ char peek() {
 }
 
 int isOperator(char c) {
-    return c == '+' || c == '-' || c == '*' || c == '/' || c == '^';
+    return c == '+' || c == '-' || c == '*' || c == '/' || c == '$';
 }
 
 int precedence(char op) {
     switch(op) {
-        case '^': return 4;
+        case '$': return 4;
         case '*': case '/': return 3;
         case '+': case '-': return 2;
         default: return 0;

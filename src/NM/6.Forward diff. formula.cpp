@@ -1,15 +1,24 @@
-//WAP to find derivative ofa  function using two point forward difference formula
-#define F(x) (x*x+2*x+1)
-#include<stdio.h>
-int main(){
-	float xi, h, d, f1,f2, x1;
-	printf("Enter value of xi andh\n");
-	scanf("%f%f",&xi, &h);
-	f1=F(xi);
-	x1=xi+h;
-	f2=F(x1);
-	d=(f2-f1)/h;
-	printf("derivative is %f",d);
-	printf("\nName:Jenisha Pandit\nRollno:61\nLab no 6");
-	return 0;
+// WAP to find derivative of a function using two-point forward difference formula
+#include <stdio.h>
+
+#define F(x) (3*(x)*(x) + 5*(x) + 1)  // Properly parenthesized
+
+int main() {
+    float xi, h, d, f1, f2, x1;
+
+    printf("Enter value of xi and h:\n");
+    scanf("%f%f", &xi, &h);
+
+    f1 = F(xi);
+    x1 = xi + h;
+    f2 = F(x1);
+
+    d = (f2 - f1) / h;
+
+    printf("Derivative is= %.4f\n",d);
+    printf("Name: Oshin Pant\nRoll No: 23\nLab No: 6\n");
+	fflush(stdin);
+	getchar();
+	getchar();
+    return 0;
 }

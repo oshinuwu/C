@@ -48,10 +48,9 @@ C program for Jacobi method*/
    z = (25-2x+3y)/20
 */
 /* Defining function */
-#define f1(x,y,z)  (17-y+2*z)/20
-#define f2(x,y,z)  (-18-3*x+z)/20
-#define f3(x,y,z)  (25-2*x+3*y)/20
-
+#define f1(x, y, z) ((9 - 2*y - z) / 10) 
+#define f2(x, y, z) ((7 - 2*x - 3*z) / 10) 
+#define f3(x, y, z) ((8 - 3*x - 4*y) / 10)
 int main()
 {
  float x0=0, y0=0, z0=0, x1, y1, z1, e1, e2, e3, e;
@@ -74,7 +73,10 @@ int main()
   z0 = z1;
  }while(e1>e && e2>e && e3>e);
  printf("\nSolution: x=%0.3f, y=%0.3f and z = %0.3f\n",x1,y1,z1);
-	printf("\nName:Jenisha Pandit\nRollno:61\nLab no 31");
+ printf("\nName:Oshin Pant\nRollno:23\nLab no: 31");
+ fflush(stdin);
+ getchar();
+ getchar();
  return 0;
 }
 

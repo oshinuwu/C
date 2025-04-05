@@ -53,7 +53,10 @@ int main(){
         }
     }
     printf("Romberg estimate of integration =%f",t[p][q]);
-    printf("\nName:Jenisha Pandit\nRollno:61\nLab no 21");
+    printf("\nName:Oshin Pant\nRollno:23\nLab no: 21");
+    fflush(stdin);
+	getchar();
+	getchar();
     return 0;
 }
 

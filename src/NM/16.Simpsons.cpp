@@ -1,14 +1,14 @@
-/*Algorithm for Simpson’s 1/3 rule
+/*Algorithm for Simpsonï¿½s 1/3 rule
 Start
 Read upper limit xn and lower limit x0
 Set n=2
 Compute h = (xn-x0)/n
 Compute x1 = x0+h
 Calculate I = h3*[f(x0)+4*f(x1)+f(x2)]
-Print “I”
+Print ï¿½Iï¿½
 Stop
 
-C program for Simpson’s 1/3 rule*/
+C program for Simpsonï¿½s 1/3 rule*/
 #include<stdio.h>
 #include<conio.h>
 #include<math.h>
@@ -27,7 +27,8 @@ int main()
     	f2 = f(x2);
 	i = (f0+4*f1+f2)*h/3;
 	printf("The value of integration =%f\n",i);
-		printf("\nName:Jenisha Pandit\nRollno:61\nLab no 16");
+	printf("\nName:Oshin Pant\nRollno:23\nLab no: 16");
+	getchar();
 	getch();
 	return 0;
 }

@@ -1,4 +1,4 @@
-/*Write a C program to solve ordinary differential equation using Heun’s method
+/*Write a C program to solve ordinary differential equation using Heunï¿½s method
 Algorithm
 start
 Read initial values x and y say x0 and y0
@@ -37,7 +37,10 @@ int main()
 		y = y+h/2*(m1+m2);
 	}
 	printf("Function value at x %f =%f",x,y);
-	printf("\nName:Jenisha Pandit\nRollno:61\nLab no 23");
+	printf("\nName:Oshin Pant\nRollno:23\nLab no: 23");
+	fflush(stdin);
+	getchar();
+	getchar();
 	return 0;
 }
 /*Output:

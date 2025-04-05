@@ -1,6 +1,6 @@
-/*Write a C program to solve ordinary differential equation using Euler’s method
+/*Write a C program to solve ordinary differential equation using Eulerï¿½s method
 
-Algorithm for Euler ‘s Method
+Algorithm for Euler ï¿½s Method
 start
 Read initial values of x and y say x0 and y0
 Read the value at which functional value is required, say xp
@@ -36,7 +36,10 @@ int main()
 		y = y+f(x,y)*h;
 	}
 	printf ("Function value at x = %f is %f\n",xp,y);
-		printf("\nName:Jenisha Pandit\nRollno:61\nLab no 22");
+	printf("\nName:Oshin Pant\nRollno:23\nLab no: 22");
+	fflush(stdin);
+	getchar();
+	getchar();
 	return 0;	
 }
 /*Output

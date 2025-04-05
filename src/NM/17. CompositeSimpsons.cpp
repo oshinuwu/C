@@ -1,5 +1,5 @@
-/*write a C program to find integration using Composite Simpson’s 1/3 l rule
-Algorithm for Composite Simpson’s 1/3 rule
+/*write a C program to find integration using Composite Simpsonï¿½s 1/3 l rule
+Algorithm for Composite Simpsonï¿½s 1/3 rule
 Start
 Read value of upper limit xn and value lower limit x0
 Read number of segments say k
@@ -12,9 +12,9 @@ For i=2 to k-2
 Set result =  result+2*f(x0+i*h)
 	i= i+2
 Calculate the value of integration by using formula I = h3*result
-Display the value of integration “I”
+Display the value of integration ï¿½Iï¿½
 Stop
-C program for composite Simpson’s1/3 rule*/
+C program for composite Simpsonï¿½s1/3 rule*/
 #include<stdio.h>
 #include<conio.h>
 #include<math.h>
@@ -46,7 +46,10 @@ int main()
 	}
 	I =  h*result/3;
 	printf("The value of integration =%f\n",I);
-		printf("\nName:Jenisha Pandit\nRollno:61\nLab no 17");
+	printf("\nName:Oshin Pant\nRollno:23\nLab no: 17");
+	fflush(stdin);
+	getchar();
+	getchar();
 	return 0;
 } 
 

@@ -34,7 +34,10 @@ int main()
 	}
 	result = result*h/2;
 	printf("The value of integration =%f\n",result);
-		printf("\nName:Jenisha Pandit\nRollno:61\nLab no 15");
+	printf("\nName:Oshin Pant\n Rollno:23\n Lab no: 15");
+	fflush(stdin);
+	getchar();
+	getchar();
 	return 0;
 }
 

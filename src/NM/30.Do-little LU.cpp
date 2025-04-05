@@ -117,7 +117,10 @@ int main()
    	   printf("x%d = %f\t",i+1,x[i]);
    }
    
-   	printf("\nName:Jenisha Pandit\nRollno:61\nLab no 30");
+   printf("\nName:Oshin Pant\nRollno:23\nLab no: 30");
+   fflush(stdin);
+   getchar();
+   getchar();
    return 0;
 }
 

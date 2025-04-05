@@ -7,7 +7,7 @@
 #define E 0.001
 int main(){
 	float x1,x2,f1,f2,e,root;
-	int itr;
+	int itr=0;
 	printf("Enter initial guess:\n");
 	scanf("%f",&x1);
 
@@ -20,9 +20,7 @@ int main(){
 			}
 			x2=x1-f1/f2;
 			e=fabs(x2-x1);
-			printf("Iteration %d\n",itr);
 			printf("x%d=%f\n",itr,x1);
-			printf("Error=%f\n",e);
 			if(e<E){
 				root=x2;
 				break;
@@ -30,8 +28,11 @@ int main(){
 			x1=x2;
 			itr= itr+1;
 		}
-		printf("Root=%f\n",root);
-		printf("Name:Jenisha Pandit\nRollno:61\nLab no 1");
+		printf("\nRoot=%f\n",root);
+		printf("\nName:Oshin Pant\nRollno:23\nLab no: 2");
+		fflush(stdin);
+		getchar();
+		getchar();
 		return 0;
 	}
 		

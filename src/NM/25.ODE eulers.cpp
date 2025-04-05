@@ -1,5 +1,5 @@
-/*Write a C program for solving system of ordinary differential equations using Euler’s method
-Algorithm for Solving System of Two ODE’s
+/*Write a C program for solving system of ordinary differential equations using Eulerï¿½s method
+Algorithm for Solving System of Two ODEï¿½s
 Start
 Read initial values of x,y and z say x0, y0, and z
 Read the value at which functional value is required say xp
@@ -15,7 +15,7 @@ End for
 Display functional value y
 Stop
 
-C Program for solving system of ODE’s by using Euler’s method*/
+C Program for solving system of ODEï¿½s by using Eulerï¿½s method*/
 #include<stdio.h>
 #include<conio.h>
 #include<math.h>
@@ -41,7 +41,10 @@ int main()
 		z = nz;
 	}
 	printf("Function value at x %f =%f",x,y);
-	printf("\nName:Jenisha Pandit\nRollno:61\nLab no 25");
+	printf("\nName:Oshin Pant\n Rollno:23\n Lab no: 25");
+	fflush(stdin);
+	getchar();
+	getchar();
 	return 0;
 }
 /*Output:

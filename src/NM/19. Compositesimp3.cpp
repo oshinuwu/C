@@ -1,11 +1,11 @@
-/*Write a C program to find integration using Composite Simpson’s 3/8 I rule
+/*Write a C program to find integration using Composite Simpsonï¿½s 3/8 I rule
 
 Algorithm for Composite Simpson 3/8 rule
 Start
 Read the value of lower limit and upper limit x0 and xn
 Read the number of segments say k
 Calculate h = (xn-x0)/k
-Computer result = f(x0)+f(xn)
+Compute  result = f(x0)+f(xn)
 For i=1 to k-1
 if(mod3!=0) 
 result = result+3*f(x0+i*h)
@@ -14,7 +14,7 @@ result = result+2*f(x0+i*h)
 End for
 Calculate the value of integration by using formula v = 3/8*h*result
 Stop
-…………………………………………………*/
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 
 #include<stdio.h>
 #include<conio.h>
@@ -50,7 +50,10 @@ int main()
 	
 	I=  3*h*result/8;
  	printf("Integration =%f",I);
-printf("\nName:Jenisha Pandit\nRollno:61\nLab no 19");
+	 printf("\nName:Oshin Pant\n Rollno:23\n Lab no: 19");
+	 fflush(stdin);
+	getchar();
+	 getchar();
 	return 0;
 }
 /*Output:

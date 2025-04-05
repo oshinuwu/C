@@ -39,7 +39,10 @@ int main()
 		y = y+(m1+2*m2+2*m2+m4)*h/6;
 	}
 	printf("Function value at x %f =%f",x,y);
-		printf("\nName:Jenisha Pandit\nRollno:61\nLab no 24");
+	printf("\nName:Oshin Pant\nRollno:23\nLab no: 24");
+	fflush(stdin);
+	getchar();
+	getchar();
 	return 0;
 }
 /*Output:

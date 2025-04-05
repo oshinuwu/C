@@ -6,12 +6,12 @@
 4. Calculate h = (x1-x0)
 5. Calculate the value of integration by using formula
 v = (f(x 0 )+fx(x 1 )
-6. Display the value of integration “v”
+6. Display the value of integration ï¿½vï¿½
 7. Stop*/
 //C program for trapezoidal rule
 #include<stdio.h>
 #include<conio.h>
-#define F(x) (x*x*x+3)
+#define F(x) (x*x*x+5)
 int main()
 {
 	float h, x0,x1,x2,x,v,f0,f1;
@@ -22,7 +22,8 @@ int main()
 	f0 = F(x0);
 	v = h*(f0+f1)/2;
 	printf("The value of integration = %f",v);
-		printf("\nName:Jenisha Pandit\nRollno:61\nLab no 14");
+	printf("\nName:Oshin Pant\n Rollno:23\n Lab no: 14");
+	getchar();
 	getch();
 	return 0;
 }

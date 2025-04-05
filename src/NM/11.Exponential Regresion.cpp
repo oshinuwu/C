@@ -1,3 +1,20 @@
+/*
+1.	Start
+2.	Read number of data points say n
+3.	Read given data points say x[i], y[i]
+4.	Calculate needed summation as below
+sx = sx+x[i];
+slogy = slogy+logy[i];
+sxy = sxy+x[i]*logy[i];
+sx2 = sx2+x[i]*x[i];
+End for
+5.	Calculate values of b and a by using following formulae
+a = ((n*sxy)-(sx*slogy))/((n*sx2)-(sx*sx))
+r = (slogy)/n)-(b*sx/n)
+a = er
+6.	Display the equation y = aebx
+7.	Stop
+*/
 //Write a C program for exponential regression
 #include<stdio.h>
 #include<conio.h>
@@ -24,7 +41,8 @@ int main()
 	r = (slogy/n)-(b*sx/n);
 	a =  exp(r);
 	printf("Fitted Curve is y = %fe^%fx",a,b);
-	printf("\nName:Jenisha Pandit\nRollno:61\nLab no 11");
+	printf("\nName:Oshin Pant\n Rollno:23\n Lab no: 11");
+	getchar();
 	getch();
 }
 

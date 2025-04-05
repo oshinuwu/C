@@ -22,7 +22,7 @@ Check for tolerance level as below
 For i=1 to n
 If (E[i]>e)
 Go to step 7
-Display Result in “new_x” vector
+Display Result in ï¿½new_xï¿½ vector
 Stop*/
 #include <stdio.h>
 #include <math.h>
@@ -58,7 +58,10 @@ int main() {
     } while (e1 > e || e2 > e || e3 > e);
     
     printf("\nSolution: x = %0.3f, y = %0.3f, z = %0.3f\n", x, y, z);
-    printf("\nName: Jenisha Pandit\nRollno: 61\nLab no 32\n");
+    printf("\nName:Oshin Pant\nRollno:23\nLab no: 32");
+		fflush(stdin);
+		getchar();
+		getchar();
     
     return 0;
 }

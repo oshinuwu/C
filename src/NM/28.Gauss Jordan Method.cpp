@@ -13,7 +13,7 @@ end for
 for i=1 to n
 term = a[i][k]
 if(i!=k)
-multiply row k by “term” and subtract it from row i
+multiply row k by ï¿½termï¿½ and subtract it from row i
 End for
 End for
 Display inverse matrix which is second half of augmented matrix
@@ -72,7 +72,10 @@ int main()
 		}
 		printf("\n");
 	}
-	printf("\nName:Jenisha Pandit\nRollno:61\nLab no 28");
+	printf("\nName:Oshin Pant\nRollno:23\nLab no: 28");
+		fflush(stdin);
+		getchar();
+		getchar();
 	return 0;
 	
 }

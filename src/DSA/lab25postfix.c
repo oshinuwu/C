@@ -13,7 +13,6 @@ void push(double val) {
 
 double pop() {
     if (top >= 0) return stack[top--];
-    printf("Stack underflow\n");
     return 0;
 }
 
@@ -35,7 +34,7 @@ double evaluate(char* expr) {
 }
 
 int main() {
-    char expr[] = "23*54*+9-"; // 2*3 + 5*4 - 9 = 17
+    char expr[] = "27$54/+9*"; 
     
     printf("Postfix: %s\n", expr);
     printf("Result: %.2f\n", evaluate(expr));

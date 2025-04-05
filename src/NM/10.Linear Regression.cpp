@@ -1,5 +1,4 @@
-/*Algorithm
-Start
+/*AlgorithmStart
 Read number of points, say n
 Read given data points say x[i] and y[i]
 Find summations of x, y, xy and x2 as below
@@ -38,7 +37,8 @@ int main()
 	b = ((n*sxy)-(sx*sy))/((n*sx2)-(sx*sx));
 	a = (sy/n)-(b*sx/n);
 	printf("Fitted line is %f+%fx",a,b);
-	printf("\nName:Jenisha Pandit\nRollno:61\nLab no 10");
+	printf("\nName:Oshin Pant\n Rollno:23\n Lab no: 10");
+	getchar();
 	getch();
 }
 /*Output:

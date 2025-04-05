@@ -49,7 +49,8 @@ int main()
 		  yp = yp + p * y[i];
 	 }
 	 printf("Interpolated value at %.3f is %.3f", xp, yp);
-	 printf("\nName:Jenisha Pandit\nRollno:61\nLab no 8");
+	 printf("\nName:Oshin Pant\n Rollno:23\n Lab no: 8");
+	 getchar();
 	 getch();
 }
 

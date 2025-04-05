@@ -6,7 +6,7 @@ Set w1 = w2 =1, z1 = -0.57735, z2 = 0.57735
 Compute x1 = (b-a)2z1+(b-a)2
 x1 = b-a2z1+b-a2
 Compute v = x1 = (b-a)2{f(x1)+f(x2)}
-Display “v”
+Display ï¿½vï¿½
 Stop
 */
 #include<stdio.h>
@@ -27,7 +27,10 @@ int main()
 	x2 = (b-a)/2*z2+(b+a)/2;
 	v = (b-a)/2*((f(x1))+f(x2));
 	printf("Value of integration =%f",v);
-	printf("\nName:Jenisha Pandit\nRollno:61\nLab no 20");
+	printf("\nName:Oshin Pant\nRollno:23\nLab no: 20");
+	fflush(stdin);
+	getchar();
+	getchar();
 	return 0;
 }
 /*Output:

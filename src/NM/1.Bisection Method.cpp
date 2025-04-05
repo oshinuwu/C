@@ -21,9 +21,7 @@ int main(){
 			x0=(x1+x2)/2;
 			f0=F(x0);
 			e=fabs(x1-x0);
-			printf("Iteration %d\n",itr);
-			printf("x0=%f\n",x0);
-			printf("Error=%f\n",e);
+		
 			if(e<E||f0==0){
 				root=x0;
 				break;
@@ -39,7 +37,10 @@ int main(){
 			itr=itr+1;
 		}
 		printf("Root=%f\n",root);
-			printf("Name:Jenisha Pandit\nRollno:61\nLab no 2");
+		printf("\nName:Oshin Pant\nRollno:23\nLab no: 1");
+		fflush(stdin);
+		getchar();
+		getchar();
 		return 0;
 	}
 }
