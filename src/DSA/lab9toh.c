@@ -13,7 +13,7 @@ int main(){
    int n;
    printf("Enter no. of disks : ");
    scanf("%d",&n);
-   transfer(n, 'A','C','B');
+   transfer(n, 'A','B','C');
    
    printf("\nName:Oshin Pant Roll No:23 Lab No:9");
    fflush(stdin);
