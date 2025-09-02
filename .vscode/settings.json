@@ -3,5 +3,5 @@
         "stdio.h": "c",
         "LAB-17.C": "cpp"
     },
-    "C_Cpp.errorSquiggles": "enabled"
+    "C_Cpp.errorSquiggles": "disabled"
 }
