@@ -58,19 +58,23 @@ enum states delta(enum states s, char ch, char st_top) {
     switch (s) {
         case q0:
             if (ch == 'e' && st_top == 'e') {
-                curr_state = q1;
+                curr_state = q0;
                 push('$');  // stack bottom marker
+            }
+            // Push 'a's onto the stack
+            if (ch == 'a') {
+                curr_state = q0;
+                push('a');
+            }
+            if (ch == 'b' && st_top == 'a') {
+                curr_state = q1;  
             }
             break;
 
         case q1:
-            // Push 'a's onto the stack
-            if (ch == 'a') {
-                curr_state = q1;
-                push('a');
-            }
+            
             // Pop 'a's for each 'b'
-            else if (ch == 'b' && st_top == 'a') {
+            if (ch == 'b' && st_top == 'a') {
                 curr_state = q2;  
             }
             else {
