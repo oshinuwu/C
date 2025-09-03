@@ -29,14 +29,12 @@ int main()
 
   printf("NPDA");
   printf("\nEnter a string: ");
-  char* inputs[50];
-  scanf("%s",inputs);
+  char  input[50];
+  scanf("%s",input);
   // printf("\nEnter a string of form a^n b^3n: ");
   // scanf("%[^\n]%*c", input);
-  int n = sizeof(inputs) / sizeof(inputs[0]);
-  for (int i = 0; i < n; i++)
-  {
-    const char *input = inputs[i];
+  
+  
     enum states final_state = determine_final_state(input, strlen(input));
 
     if (final_state == qf)
@@ -56,7 +54,7 @@ int main()
     {
       pop();
     }
-  }
+  
 
   printf("\nName:Oshin Pant\nRoll no:23\nLab no:3-b\n Sec:A");
   getchar();
