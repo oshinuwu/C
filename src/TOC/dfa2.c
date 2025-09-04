@@ -4,7 +4,7 @@
 int main() {
     char str[100];
     int state = 0; // q0
-    printf("DFA_2 (L:all string except '00' or '11' where w={0,1})\n");
+    printf("DFA_2 (L:all string without substring '00' or '11' where w={0,1})\n");
     printf("Enter a binary string: ");
     scanf("%s", str);
 
