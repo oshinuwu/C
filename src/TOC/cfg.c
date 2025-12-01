@@ -117,14 +117,14 @@ Node* B() {
     return NULL;
 }
 
-// Print parse tree visually (leftmost derivation)
+// Print parse tree visually (ASCII version)
 void printParseTree(Node* node, char* prefix, int isTail) {
     if (!node) return;
-    printf("%s%s%s\n", prefix, isTail ? "└─ " : "├─ ", node->symbol);
+    printf("%s%s%s\n", prefix, isTail ? "\\-- " : "|-- ", node->symbol);
 
     char newPrefix[256];
     strcpy(newPrefix, prefix);
-    strcat(newPrefix, isTail ? "   " : "│  ");
+    strcat(newPrefix, isTail ? "    " : "|   ");
 
     int childCount = 0;
     if (node->left) childCount++;
